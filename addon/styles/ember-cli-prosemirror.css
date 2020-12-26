@@ -1,0 +1,18 @@
+:root {
+  --prosemirrorEditor-border-radius: 2px;
+  --prosemirrorEditor-border-color:  #e6e6e6;
+
+  --prosemirrorEditor-min-height:    300px;
+}
+
+.prosemirror-editor  [contenteditable="true"] {
+  border-radius: var(--prosemirrorEditor-border-radius);
+  border: 1px solid var(--prosemirrorEditor-border-color);
+
+  min-height: var(--prosemirrorEditor-min-height);
+  outline: none;
+  padding: 10px;
+}
+
+.prosemirror-editor  [contenteditable="true"]::focus {
+}
