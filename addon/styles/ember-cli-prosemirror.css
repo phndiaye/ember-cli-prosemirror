@@ -1,18 +1,15 @@
-:root {
-  --prosemirrorEditor-border-radius: 2px;
-  --prosemirrorEditor-border-color:  #e6e6e6;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese');
 
-  --prosemirrorEditor-min-height:    300px;
+.prosemirror-editor {
+  border: 1px solid var(--prosemirrorEditor-border-color);
+  border-radius: var(--prosemirrorEditor-border-radius);
+
+  font-family: var(--prosemirrorEditor-font-stack);
 }
 
 .prosemirror-editor  [contenteditable="true"] {
-  border-radius: var(--prosemirrorEditor-border-radius);
-  border: 1px solid var(--prosemirrorEditor-border-color);
-
   min-height: var(--prosemirrorEditor-min-height);
   outline: none;
   padding: 10px;
-}
-
-.prosemirror-editor  [contenteditable="true"]::focus {
+  position: relative;
 }

@@ -1,0 +1,75 @@
+/*
+ * ProseMirror Menu Bar Wrapper
+ * This the container of the entire menu bar above the text editor.
+ */
+.prosemirror-editor .ProseMirror-menubar {
+  border-bottom: 1px solid var(--prosemirrorEditor-border-color);
+  display: flex;
+  min-height: auto !important;
+  padding: var(--prosemirrorEditor-base-spacing);
+}
+
+/*
+ * ProseMirror Dropdown Wrapper.
+ * This is the wrapper container of the the whole dropdown (trigger + content).
+ */
+.prosemirror-editor .ProseMirror-menubar .ProseMirror-menu-dropdown-wrap {
+  position: relative;
+}
+
+/**
+ * Dropdown Menu Trigger
+ */
+.prosemirror-editor .ProseMirror-menubar__dropdown.ProseMirror-menubar__dropdown {
+}
+
+/**
+ * Actual Dropdown Menu
+ */
+.prosemirror-editor .ProseMirror-menubar__dropdown.ProseMirror-menu-dropdown-menu {
+  background-color: #fff;
+  border: 1px solid var(--prosemirrorEditor-border-color);
+  border-radius: var(--prosemirrorEditor-border-radius);
+  padding: var(--prosemirrorEditor-base-spacing) calc(var(--prosemirrorEditor-base-spacing) * 2);
+  position: absolute;
+  top: calc(var(--prosemirrorEditor-base-spacing) * 5);
+  width: 120%;
+  z-index: 999;
+}
+
+.prosemirror-editor .ProseMirror-menubar__dropdown .ProseMirror-menu-dropdown-item {
+  font-family: var(--prosemirrorEditor-font-stack);
+  margin-top: calc(var(--prosemirrorEditor-base-spacing) * 2)
+}
+
+.prosemirror-editor .ProseMirror-menubar__dropdown .ProseMirror-menu-dropdown-item:first-child {
+  margin-top: 0;
+}
+
+.prosemirror-editor .ProseMirror-menubar .ProseMirror-menuseparator {
+  background-color: var(--prosemirrorEditor-border-color);
+  margin-left: calc(var(--prosemirrorEditor-base-spacing) * 2);
+
+  height: auto;
+  width: 1px;
+}
+
+.prosemirror-editor .ProseMirror-menubar .ProseMirror-menuitem {
+  font-family: var(--prosemirrorEditor-font-stack);
+  margin-left: calc(var(--prosemirrorEditor-base-spacing) * 2);
+  padding: var(--prosemirrorEditor-base-spacing) calc(var(--prosemirrorEditor-base-spacing) * 2);
+}
+
+.prosemirror-editor .ProseMirror-menubar .ProseMirror-menuitem i.fas {
+  font-size: 12px;
+}
+
+.prosemirror-editor .ProseMirror-menubar .ProseMirror-menuitem:hover {
+  background-color: var(--prosemirrorEditor-border-color);
+  border-radius: var(--prosemirrorEditor-border-radius);
+  cursor: pointer;
+}
+
+.prosemirror-editor .ProseMirror-menubar .ProseMirror-menuitem:first-child {
+  margin-left: 0;
+}

@@ -1,0 +1,10 @@
+:root {
+  --prosemirrorEditor-border-radius:    2px;
+  --prosemirrorEditor-border-color:     #e6e6e6;
+
+  --prosemirrorEditor-min-height:       300px;
+
+  --prosemirrorEditor-base-spacing:     4px;
+
+  --prosemirrorEditor-font-stack:       'Open Sans', sans-serif;
+}
