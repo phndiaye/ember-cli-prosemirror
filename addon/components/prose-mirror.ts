@@ -5,12 +5,14 @@ import { Schema } from 'prosemirror-model';
 import { schema as basicSchema } from 'prosemirror-schema-basic';
 import { EditorState, Transaction } from 'prosemirror-state'
 import { EditorView } from 'prosemirror-view'
-import { undo, redo, history } from "prosemirror-history"
-import { baseKeymap } from "prosemirror-commands"
-import { keymap } from "prosemirror-keymap"
+import { undo, redo, history } from 'prosemirror-history'
+import { baseKeymap } from 'prosemirror-commands'
+import { keymap } from 'prosemirror-keymap'
+
+import MenuBuilder from 'ember-cli-prosemirror/plugins/menu-builder';
 
 interface ProseMirrorArgs {
-  onContentChange: Function
+  onContentChange: Function;
 }
 
 export default class ProseMirror extends Component<ProseMirrorArgs> {
@@ -22,7 +24,9 @@ export default class ProseMirror extends Component<ProseMirrorArgs> {
       plugins: [
         history(),
         keymap({ 'Mod-z': undo, 'Mod-y': redo }),
-        keymap(baseKeymap)
+        keymap(baseKeymap),
+
+        new MenuBuilder(schema).getFullMenu()
       ]
     });
   }
