@@ -37,7 +37,7 @@ export default class ProseMirror extends Component<ProseMirrorArgs> {
   }
 
   @action
-  initializeEditor(element: Element) {
+  initializeProseMirror(element: Element) {
     const self = this;
     const { _dispatchTransaction } = this;
 
