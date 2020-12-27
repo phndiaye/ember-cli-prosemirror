@@ -1524,7 +1524,7 @@
     "@types/prosemirror-state" "*"
     "@types/prosemirror-view" "*"
 
-"@types/prosemirror-model@*":
+"@types/prosemirror-model@*", "@types/prosemirror-model@^1.11.1":
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/@types/prosemirror-model/-/prosemirror-model-1.11.1.tgz#f1258bfe8d6f2fb68a2f95b3af57e18e5868cbab"
   integrity sha512-sAue1p9V/JjATX1JzQDFzW2ON8QEGUz3eMSpJX94oCr0CoAQgK4/kSM2funtQKy1GHd+xr7wZ509ykt49b+T1Q==
@@ -9175,7 +9175,7 @@ prosemirror-menu@^1.1.4:
     prosemirror-history "^1.0.0"
     prosemirror-state "^1.0.0"
 
-prosemirror-model@^1.0.0, prosemirror-model@^1.1.0, prosemirror-model@^1.2.0:
+prosemirror-model@^1.0.0, prosemirror-model@^1.1.0, prosemirror-model@^1.13.1, prosemirror-model@^1.2.0:
   version "1.13.1"
   resolved "https://registry.yarnpkg.com/prosemirror-model/-/prosemirror-model-1.13.1.tgz#fa3dc888cf6928bd3968620588ffe6458d201f9f"
   integrity sha512-PNH+b5bilAJi1B5yJ8QzoNY3ZV+nlD0jKG3XCBk7PmE/YUTJomBkFBS005vfU+3M9yeVR8/6spAEDsfVFUhNeQ==
