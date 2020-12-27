@@ -27,6 +27,7 @@
  * Actual Dropdown Menu
  */
 .prosemirror-editor .ProseMirror-menubar__dropdown.ProseMirror-menu-dropdown-menu {
+  animation: openDropdown .2s;
   background-color: #fff;
   border: 1px solid var(--prosemirrorEditor-border-color);
   border-radius: var(--prosemirrorEditor-border-radius);
@@ -39,7 +40,14 @@
 
 .prosemirror-editor .ProseMirror-menubar__dropdown .ProseMirror-menu-dropdown-item {
   font-family: var(--prosemirrorEditor-font-stack);
-  margin-top: calc(var(--prosemirrorEditor-base-spacing) * 2)
+  font-size: 12px;
+  margin-top: var(--prosemirrorEditor-base-spacing);
+  padding: var(--prosemirrorEditor-base-spacing);
+  border-radius: var(--prosemirrorEditor-border-radius);
+}
+
+.prosemirror-editor .ProseMirror-menubar__dropdown .ProseMirror-menu-dropdown-item:hover {
+  background-color: var(--prosemirrorEditor-border-color);
 }
 
 .prosemirror-editor .ProseMirror-menubar__dropdown .ProseMirror-menu-dropdown-item:first-child {
