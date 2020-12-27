@@ -10,6 +10,7 @@ import { baseKeymap } from "prosemirror-commands"
 import { keymap } from "prosemirror-keymap"
 
 interface ProseMirrorArgs {
+  onContentChange: Function
 }
 
 export default class ProseMirror extends Component<ProseMirrorArgs> {
@@ -28,6 +29,7 @@ export default class ProseMirror extends Component<ProseMirrorArgs> {
 
   _dispatchTransaction(transaction: Transaction) {
     this.editorView?.updateState(this.editorView.state.apply(transaction));
+    this.args.onContentChange?.(this.editorView?.state.doc);
   }
 
   @action
