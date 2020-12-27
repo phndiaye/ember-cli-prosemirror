@@ -1,14 +1,14 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-import { Schema } from 'prosemirror-model';
-import { schema as basicSchema } from 'prosemirror-schema-basic';
+import { Schema as ProseMirrorSchema } from 'prosemirror-model';
 import { EditorState, Transaction } from 'prosemirror-state'
 import { EditorView } from 'prosemirror-view'
 import { undo, redo, history } from 'prosemirror-history'
 import { baseKeymap } from 'prosemirror-commands'
 import { keymap } from 'prosemirror-keymap'
 
+import schema from 'ember-cli-prosemirror/-internal/schema';
 import MenuBuilder from 'ember-cli-prosemirror/plugins/menu-builder';
 
 interface ProseMirrorArgs {
@@ -18,7 +18,7 @@ interface ProseMirrorArgs {
 export default class ProseMirror extends Component<ProseMirrorArgs> {
   editorView: EditorView | null = null;
 
-  _buildEditorState(schema: Schema) : EditorState {
+  _buildEditorState(schema: ProseMirrorSchema) : EditorState {
     return EditorState.create({
       schema,
       plugins: [
@@ -42,7 +42,7 @@ export default class ProseMirror extends Component<ProseMirrorArgs> {
     const { _dispatchTransaction } = this;
 
     this.editorView = new EditorView(element, {
-      state: this._buildEditorState(basicSchema),
+      state: this._buildEditorState(schema),
       dispatchTransaction: _dispatchTransaction.bind(self)
     });
   }
