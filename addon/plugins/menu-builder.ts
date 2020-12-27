@@ -22,6 +22,7 @@ interface MenuBuilderInterface {
 interface MenuItemsDefinition {
   toggleStrong?: any;
   toggleEm?: any;
+  toggleUnderline?: any;
   toggleCode?: any;
   headings?: Array<any>;
   inlineMenu?: Array<any>;
@@ -107,6 +108,13 @@ export default class MenuBuilder implements MenuBuilderInterface {
       })
     }
 
+    if (this.schema.marks.underline) {
+      this.menuItems.toggleUnderline = this._buildMarkupItem(this.schema.marks.underline, {
+        title: "Underline",
+        icon: faIcon('underline')
+      })
+    }
+
     this.menuItems.headings = [];
     if (this.schema.nodes.heading) {
       for (let i = 1; i <= 6; i++) {
@@ -121,7 +129,7 @@ export default class MenuBuilder implements MenuBuilderInterface {
     }
 
     this.menuItems.inlineMenu = compactArray([
-      this.menuItems.toggleStrong, this.menuItems.toggleEm, this.menuItems.toggleCode
+      this.menuItems.toggleStrong, this.menuItems.toggleEm, this.menuItems.toggleUnderline, this.menuItems.toggleCode
     ]);
 
     this.menuItems.headingsDropdown = new MenuDropdown(
