@@ -22,6 +22,7 @@ interface MenuBuilderInterface {
 interface MenuItemsDefinition {
   toggleStrong?: any;
   toggleEm?: any;
+  toggleCode?: any;
   headings?: Array<any>;
   inlineMenu?: Array<any>;
   headingsDropdown?: MenuDropdown;
@@ -99,6 +100,13 @@ export default class MenuBuilder implements MenuBuilderInterface {
       });
     }
 
+    if (this.schema.marks.code) {
+      this.menuItems.toggleCode = this._buildMarkupItem(this.schema.marks.code, {
+        title: "Code",
+        icon: faIcon('code')
+      })
+    }
+
     this.menuItems.headings = [];
     if (this.schema.nodes.heading) {
       for (let i = 1; i <= 6; i++) {
@@ -112,7 +120,9 @@ export default class MenuBuilder implements MenuBuilderInterface {
       }
     }
 
-    this.menuItems.inlineMenu = compactArray([this.menuItems.toggleStrong, this.menuItems.toggleEm]);
+    this.menuItems.inlineMenu = compactArray([
+      this.menuItems.toggleStrong, this.menuItems.toggleEm, this.menuItems.toggleCode
+    ]);
 
     this.menuItems.headingsDropdown = new MenuDropdown(
       compactArray(this.menuItems.headings), {
