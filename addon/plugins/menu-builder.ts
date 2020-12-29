@@ -23,6 +23,7 @@ interface MenuItemsDefinition {
   toggleStrong?: any;
   toggleEm?: any;
   toggleUnderline?: any;
+  toggleStrikethrough?: any;
   toggleCode?: any;
   headings?: Array<any>;
   inlineMenu?: Array<any>;
@@ -115,6 +116,13 @@ export default class MenuBuilder implements MenuBuilderInterface {
       })
     }
 
+    if (this.schema.marks.strikethrough) {
+      this.menuItems.toggleStrikethrough = this._buildMarkupItem(this.schema.marks.strikethrough, {
+        title: "strikethrough",
+        icon: faIcon('strikethrough')
+      })
+    }
+
     this.menuItems.headings = [];
     if (this.schema.nodes.heading) {
       for (let i = 1; i <= 6; i++) {
@@ -129,7 +137,8 @@ export default class MenuBuilder implements MenuBuilderInterface {
     }
 
     this.menuItems.inlineMenu = compactArray([
-      this.menuItems.toggleStrong, this.menuItems.toggleEm, this.menuItems.toggleUnderline, this.menuItems.toggleCode
+      this.menuItems.toggleStrong, this.menuItems.toggleEm, this.menuItems.toggleUnderline,
+      this.menuItems.toggleStrikethrough, this.menuItems.toggleCode
     ]);
 
     this.menuItems.headingsDropdown = new MenuDropdown(
