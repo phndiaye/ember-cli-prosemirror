@@ -1,4 +1,5 @@
-import { Schema, Mark, MarkType } from 'prosemirror-model';
+import { capitalize } from '@ember/string'
+import { Schema, Mark, MarkType } from 'prosemirror-model'
 import {
   menuBar,
   MenuItem,
@@ -7,9 +8,11 @@ import {
   undoItem,
   redoItem,
   blockTypeItem
-} from 'prosemirror-menu';
-import { toggleMark } from 'prosemirror-commands';
-import { EditorState, Plugin } from 'prosemirror-state';
+} from 'prosemirror-menu'
+import { toggleMark } from 'prosemirror-commands'
+import { EditorState, Plugin } from 'prosemirror-state'
+
+import { faIcon } from 'ember-cli-prosemirror/-utils';
 
 interface MenuBuilderInterface {
   schema: Schema;
@@ -31,22 +34,6 @@ interface MenuItemsDefinition {
 
   fullMenu?: Array<any>
 }
-
-/**
- * Build an Element containing an FontAwesome icon.
- * @faIcon
- * @param {string} name - Name of the icon in FontAwesome (eg: heading, search)
-*/
-const faIcon = (name: string): Object => {
-  let iconContainer = document.createElement('span');
-  iconContainer.setAttribute('class', 'prosemirror-editor__menu-icon-container');
-
-  let node = document.createElement('i');
-  node.setAttribute('class', `fas fa-${name}`);
-  iconContainer.appendChild(node);
-
-  return { dom: iconContainer };
-};
 
 /*
  * Filter null/undefined values from an Array.
@@ -88,40 +75,11 @@ export default class MenuBuilder implements MenuBuilderInterface {
    * 
    */
   _buildMenuItems(): MenuItemsDefinition {
-    if (this.schema.marks.strong) {
-      this.menuItems.toggleStrong = this._buildMarkupItem(this.schema.marks.strong, {
-        title: 'Bold',
-        icon: faIcon('bold')
-      })
-    }
-
-    if (this.schema.marks.em) {
-      this.menuItems.toggleEm = this._buildMarkupItem(this.schema.marks.em, {
-        title: 'Italic',
-        icon: faIcon('italic')
-      });
-    }
-
-    if (this.schema.marks.code) {
-      this.menuItems.toggleCode = this._buildMarkupItem(this.schema.marks.code, {
-        title: "Code",
-        icon: faIcon('code')
-      })
-    }
-
-    if (this.schema.marks.underline) {
-      this.menuItems.toggleUnderline = this._buildMarkupItem(this.schema.marks.underline, {
-        title: "Underline",
-        icon: faIcon('underline')
-      })
-    }
-
-    if (this.schema.marks.strikethrough) {
-      this.menuItems.toggleStrikethrough = this._buildMarkupItem(this.schema.marks.strikethrough, {
-        title: "strikethrough",
-        icon: faIcon('strikethrough')
-      })
-    }
+    ['strong', 'em', 'code', 'underline', 'strikethrough'].forEach((name) => {
+      if (this.schema.marks[name]) {
+        this.menuItems[`toggle${capitalize(name)}`]  = this.schema.marks[name].toMenuItem();
+      }
+    })
 
     this.menuItems.headings = [];
     if (this.schema.nodes.heading) {
