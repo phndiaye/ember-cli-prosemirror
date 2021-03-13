@@ -12,7 +12,7 @@ import {
 import { toggleMark } from 'prosemirror-commands'
 import { EditorState, Plugin } from 'prosemirror-state'
 
-import { faIcon } from 'ember-cli-prosemirror/-utils';
+import { compactArray, faIcon } from 'ember-cli-prosemirror/-utils';
 
 interface MenuBuilderInterface {
   schema: Schema;
@@ -34,11 +34,6 @@ interface MenuItemsDefinition {
 
   fullMenu?: Array<any>
 }
-
-/*
- * Filter null/undefined values from an Array.
- */
-const compactArray = (array: Array<any>) => array.filter(x => x);
 
 /**
  * Builds a relevant menu based on the schema's default marks.

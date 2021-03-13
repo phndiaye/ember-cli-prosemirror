@@ -47,5 +47,10 @@ export const buildMarkupItem = (type: MarkType, options : Object) => {
   );
 }
 
+/*
+ * Filter null/undefined values from an Array.
+ */
+export const compactArray = (array: Array<any>) => array.filter(x => x);
+
 export { faIcon }
 export { menuIconsMapping }
