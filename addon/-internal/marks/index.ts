@@ -1,7 +1,4 @@
-import TextUnderlineMarkSpec from './text-underline';
 import TextStrikethroughMarkSpec from './text-strikethrough';
+import TextUnderlineMarkSpec from './text-underline';
 
-export {
-  TextUnderlineMarkSpec,
-  TextStrikethroughMarkSpec
-}
+export { TextUnderlineMarkSpec, TextStrikethroughMarkSpec };

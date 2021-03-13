@@ -1,28 +1,26 @@
-import { Schema as ProseMirrorSchema, MarkType } from 'prosemirror-model';
-import { nodes as basicSchemaNodes, marks as basicSchemaMarks } from 'prosemirror-schema-basic';
+import { MarkType, Schema as ProseMirrorSchema } from 'prosemirror-model';
+import { marks as basicSchemaMarks, nodes as basicSchemaNodes } from 'prosemirror-schema-basic';
 
-import {
-  TextUnderlineMarkSpec, TextStrikethroughMarkSpec
-} from 'ember-cli-prosemirror/-internal/marks';
+import { TextStrikethroughMarkSpec, TextUnderlineMarkSpec } from 'ember-cli-prosemirror/-internal/marks';
 
 import { buildMarkupItem, menuIconsMapping } from 'ember-cli-prosemirror/-utils';
 
-MarkType.prototype.toMenuItem = function() {
+MarkType.prototype.toMenuItem = function () {
   if (menuIconsMapping[this.name]) {
-    return buildMarkupItem(this, menuIconsMapping[this.name])
+    return buildMarkupItem(this, menuIconsMapping[this.name]);
   }
-}
+};
 
 const schema = new ProseMirrorSchema({
-  nodes: {
-    ...basicSchemaNodes
-  },
   marks: {
     ...basicSchemaMarks,
-    underline: TextUnderlineMarkSpec,
-    strikethrough: TextStrikethroughMarkSpec
+    strikethrough: TextStrikethroughMarkSpec,
+    underline: TextUnderlineMarkSpec
+  },
+  nodes: {
+    ...basicSchemaNodes
   }
-})
+});
 
-export default schema
-export { schema }
+export default schema;
+export { schema };

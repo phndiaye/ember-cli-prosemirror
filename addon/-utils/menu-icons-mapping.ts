@@ -1,24 +1,24 @@
 import faIcon from './fa-icon';
 
 export default {
-  strong: {
-    title: 'Bold',
-    icon: faIcon('bold')
+  code: {
+    icon: faIcon('code'),
+    title: 'Code'
   },
   em: {
-    title: 'Italic',
-    icon: faIcon('italic')
-  },
-  code: {
-    title: 'Code',
-    icon: faIcon('code')
-  },
-  underline: {
-    title: 'Underline',
-    icon: faIcon('underline')
+    icon: faIcon('italic'),
+    title: 'Italic'
   },
   strikethrough: {
-    title: 'Strikethrough',
-    icon: faIcon('strikethrough')
+    icon: faIcon('strikethrough'),
+    title: 'Strikethrough'
   },
-}
+  strong: {
+    icon: faIcon('bold'),
+    title: 'Bold'
+  },
+  underline: {
+    icon: faIcon('underline'),
+    title: 'Underline'
+  }
+};

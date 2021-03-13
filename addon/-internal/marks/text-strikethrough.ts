@@ -4,21 +4,21 @@ const TextStrikethroughMarkSpec: MarkSpec = {
   parseDOM: [
     { tag: 's' },
     {
-      style: 'text-decoration-line',
-      getAttrs: value => {
+      getAttrs: (value) => {
         return value === 'line-through' && null;
       },
+      style: 'text-decoration-line'
     },
     {
-      style: 'text-decoration',
-      getAttrs: value => {
+      getAttrs: (value) => {
         return value === 'line-through' && null;
       },
-    },
+      style: 'text-decoration'
+    }
   ],
   toDOM() {
     return ['s', 0];
-  },
+  }
 };
 
 export default TextStrikethroughMarkSpec;
