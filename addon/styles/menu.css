@@ -6,7 +6,7 @@
   border-bottom: 1px solid var(--prosemirrorEditor-border-color);
   display: flex;
   min-height: auto !important;
-  padding: var(--prosemirrorEditor-base-spacing);
+  padding: var(--prosemirrorEditor-grid__base-spacing);
 }
 
 /*
@@ -27,22 +27,22 @@
  * Actual Dropdown Menu
  */
 .prosemirror-editor .ProseMirror-menubar__dropdown.ProseMirror-menu-dropdown-menu {
-  animation: openDropdown .2s;
+  animation: openDropdown 0.2s;
   background-color: #fff;
   border: 1px solid var(--prosemirrorEditor-border-color);
   border-radius: var(--prosemirrorEditor-border-radius);
-  padding: var(--prosemirrorEditor-base-spacing) calc(var(--prosemirrorEditor-base-spacing) * 2);
+  padding: var(--prosemirrorEditor-grid__base-spacing) calc(var(--prosemirrorEditor-grid__base-spacing) * 2);
   position: absolute;
-  top: calc(var(--prosemirrorEditor-base-spacing) * 5);
+  top: calc(var(--prosemirrorEditor-grid__base-spacing) * 5);
   width: 120%;
   z-index: 999;
 }
 
 .prosemirror-editor .ProseMirror-menubar__dropdown .ProseMirror-menu-dropdown-item {
-  font-family: var(--prosemirrorEditor-font-stack);
-  font-size: 12px;
-  margin-top: var(--prosemirrorEditor-base-spacing);
-  padding: var(--prosemirrorEditor-base-spacing);
+  font-family: var(--prosemirrorEditor-font__stack);
+  font-size: var(--prosemirrorEditor-font__base-size);
+  margin-top: var(--prosemirrorEditor-grid__base-spacing);
+  padding: var(--prosemirrorEditor-grid__base-spacing);
   border-radius: var(--prosemirrorEditor-border-radius);
 }
 
@@ -56,20 +56,20 @@
 
 .prosemirror-editor .ProseMirror-menubar .ProseMirror-menuseparator {
   background-color: var(--prosemirrorEditor-border-color);
-  margin-left: calc(var(--prosemirrorEditor-base-spacing) * 2);
+  margin-left: calc(var(--prosemirrorEditor-grid__base-spacing) * 2);
 
   height: auto;
   width: 1px;
 }
 
 .prosemirror-editor .ProseMirror-menubar .ProseMirror-menuitem {
-  font-family: var(--prosemirrorEditor-font-stack);
-  margin-left: calc(var(--prosemirrorEditor-base-spacing) * 2);
-  padding: var(--prosemirrorEditor-base-spacing) calc(var(--prosemirrorEditor-base-spacing) * 2);
+  font-family: var(--prosemirrorEditor-font__stack);
+  margin-left: calc(var(--prosemirrorEditor-grid__base-spacing) * 2);
+  padding: var(--prosemirrorEditor-grid__base-spacing) calc(var(--prosemirrorEditor-grid__base-spacing) * 2);
 }
 
 .prosemirror-editor .ProseMirror-menubar .ProseMirror-menuitem i.fas {
-  font-size: 12px;
+  font-size: var(--prosemirrorEditor-font__base-size);
 }
 
 .prosemirror-editor .ProseMirror-menubar .ProseMirror-menuitem:hover {

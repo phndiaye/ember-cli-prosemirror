@@ -7,7 +7,7 @@
   font-family: var(--prosemirrorEditor-font-stack);
 }
 
-.prosemirror-editor  [contenteditable="true"] {
+.prosemirror-editor [contenteditable='true'] {
   min-height: var(--prosemirrorEditor-min-height);
   outline: none;
   padding: 10px;
